@@ -1,0 +1,24 @@
+{
+      "userSuccess": {
+        "username": "carlos.santos",
+        "password": "carlos123"
+    },
+      "userFail": {
+        "username": "teste",
+        "password": "teste"
+
+    },
+
+    "newUser":{
+        "firstname": "apolo",
+        "lastname": "antunes",
+        "username": "apolo.antunes",
+        "password": "apolo123"
+    },
+
+    "userWithoutTransictions":{
+        "username": "pedro.bala",
+        "password": "pedro123"
+    }
+
+}
