@@ -11,7 +11,7 @@ class Payment {
     }
 
     acessarTransferencia() {
-        cy.get(this.seletorList().newTransfer).click()
+        cy.get(this.seletorList().newTransfer, {timeout: 10000}).click()
     }
 
     preencherTransferencia(valor: string, descricao: string) {
