@@ -1,14 +1,34 @@
+// import path from "path";
+// import express from "express";
+// import history from "connect-history-api-fallback";
+// import setupProxy from "../src/setupProxy";
+// import { frontendPort } from "../src/utils/portUtils";
+
+// const app = express();
+
+// setupProxy(app as any);
+
+// app.use(history());
+// app.use(express.static(path.join(__dirname, "../build")));
+
+// app.listen(frontendPort);
+
+// testServer.ts
 import path from "path";
-import express from "express";
+import express, { Express } from "express";
 import history from "connect-history-api-fallback";
 import setupProxy from "../src/setupProxy";
 import { frontendPort } from "../src/utils/portUtils";
 
-const app = express();
+const app: Express = express();
 
-setupProxy(app as any);
+// Tipagem correta para setupProxy
+setupProxy(app);
 
 app.use(history());
 app.use(express.static(path.join(__dirname, "../build")));
 
-app.listen(frontendPort);
+// Inicializa o servidor
+app.listen(frontendPort, () => {
+  console.log(`Frontend server running at http://localhost:${frontendPort}`);
+});
