@@ -6,6 +6,9 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
 
+    env:
+      CI: true
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -16,12 +19,13 @@ jobs:
           install: npm install
           start: npm run dev
           wait-on: 'http://localhost:3000'
-          wait-on-timeout: 60
+          wait-on-timeout: 120
           browser: chrome
+          config: baseUrl=http://localhost:3000
 
       - name: Upload Cypress Artifacts
         if: always()
-        uses: actions/upload-artifacts@v3
+        uses: actions/upload-artifact@v3   # ✅ corrigido aqui
         with:
           name: Cypress Results
           path: |
