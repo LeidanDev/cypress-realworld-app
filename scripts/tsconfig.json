@@ -1,9 +1,15 @@
 {
   "extends": "../tsconfig.json",
-  "include": ["./*/*.ts", "../src", "../models"],
+  "include": [
+    "./*/*.ts",
+    "../src",
+    "../models"
+  ],
   "exclude": [],
   "compilerOptions": {
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "isolatedModules": false,
   },
 }
