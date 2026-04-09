@@ -6,7 +6,7 @@ import { frontendPort } from "../src/utils/portUtils";
 
 const app = express();
 
-setupProxy(app);
+setupProxy(app as any);
 
 app.use(history());
 app.use(express.static(path.join(__dirname, "../build")));
