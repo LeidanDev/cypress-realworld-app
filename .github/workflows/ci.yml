@@ -5,16 +5,19 @@ on: [push]
 jobs:
   build-test:
     runs-on: ubuntu-latest
-    steps:
 
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Cypress Test
-        uses: cypress-io/github-actions@v5
+      - name: Cypress Run
+        uses: cypress-io/github-actions@v6
         with:
-          start: 'npm run dev'
-          build: 'npm run build'
+          install: npm install
+          start: npm run dev
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 60
+          browser: chrome
 
       - name: Upload Cypress Artifacts
         if: always()
@@ -24,5 +27,4 @@ jobs:
           path: |
             cypress/screenshots
             cypress/videos
-            cypress/results
           if-no-files-found: ignore
