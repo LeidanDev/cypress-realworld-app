@@ -8,7 +8,7 @@ class TransactionPage {
     }
 
     acessarHistorico(){
-        cy.get(this.selectorList().mine, {timeout: 1000}).click()
+        cy.get(this.selectorList().mine, {timeout: 5000}).click()
         cy.get(this.selectorList().transactions).should('exist');
     }
 
