@@ -5,7 +5,6 @@ on: [push]
 jobs:
   build-test:
     runs-on: ubuntu-latest
-
     env:
       CI: true
 
@@ -14,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Cypress Run
-        uses: cypress-io/github-action@v6
+        uses: cypress-io/github-action@v6   # ✅ nome correto
         with:
           install: npm install
           start: npm run dev
@@ -25,7 +24,7 @@ jobs:
 
       - name: Upload Cypress Artifacts
         if: always()
-        uses: actions/upload-artifact@v3   # ✅ corrigido aqui
+        uses: actions/upload-artifact@v4   # ✅ versão atualizada
         with:
           name: Cypress Results
           path: |
