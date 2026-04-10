@@ -1,6 +1,7 @@
 import transactionsPage from "../pages/transactionsPage";
 import LoginPage from "../pages/loginPage";
 import userData from "../fixtures/userData.json";
+import NewRegister from "../pages/newRegisterPage";
 
 describe('Visualizar histórico de transações com sucesso', () => {
     beforeEach(() => {
@@ -14,7 +15,15 @@ describe('Visualizar histórico de transações com sucesso', () => {
     });
 
     it('Deve exibir uma mensagem indicando que o usuário não possui transações anteriores', () => {
-        const user = userData.userWithoutTransictions; //  ideal ter outro usuário mas está sem usuario sem saldo positivo no userData
+         const user = userData.newUser;
+        
+                NewRegister.registerUser(
+                    user.firstname,
+                    user.lastname,
+                    user.username,
+                    user.password
+                );
+        
 
         LoginPage.login(user.username, user.password);
         transactionsPage.acessarHistoricoVazio()

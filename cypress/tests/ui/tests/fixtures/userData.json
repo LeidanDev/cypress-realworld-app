@@ -14,11 +14,6 @@
         "lastname": "antunes",
         "username": "apolo.antunes",
         "password": "apolo123"
-    },
-
-    "userWithoutTransictions":{
-        "username": "pedro.bala",
-        "password": "pedro123"
     }
 
 }
