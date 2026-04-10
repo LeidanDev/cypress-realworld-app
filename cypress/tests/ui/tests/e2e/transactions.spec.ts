@@ -2,6 +2,7 @@ import transactionsPage from "../pages/transactionsPage";
 import LoginPage from "../pages/loginPage";
 import userData from "../fixtures/userData.json";
 import NewRegister from "../pages/newRegisterPage";
+import paymentPage from "../pages/paymentPage";
 
 describe('Visualizar histórico de transações com sucesso', () => {
     beforeEach(() => {
@@ -11,19 +12,23 @@ describe('Visualizar histórico de transações com sucesso', () => {
         const user = userData.userSuccess;
 
         LoginPage.login(user.username, user.password);
-        transactionsPage.acessarHistorico()
+        paymentPage.acessarTransferencia();
+        paymentPage.preencherTransferencia("10", "teste sucesso");
+        paymentPage.submeterTransferencia();
+        transactionsPage.acessarHome();
+        transactionsPage.acessarHistorico();
     });
 
     it('Deve exibir uma mensagem indicando que o usuário não possui transações anteriores', () => {
-         const user = userData.newUser;
-        
-                NewRegister.registerUser(
-                    user.firstname,
-                    user.lastname,
-                    user.username,
-                    user.password
-                );
-        
+        const user = userData.newUser;
+
+        NewRegister.registerUser(
+            user.firstname,
+            user.lastname,
+            user.username,
+            user.password
+        );
+
 
         LoginPage.login(user.username, user.password);
         transactionsPage.acessarHistoricoVazio()

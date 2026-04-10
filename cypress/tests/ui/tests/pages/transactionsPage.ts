@@ -7,6 +7,10 @@ class TransactionPage {
         }
     }
 
+    acessarHome(){
+        cy.contains("Home").click()
+    }
+
     acessarHistorico(){
         cy.get(this.selectorList().mine, {timeout: 5000}).click()
         cy.get(this.selectorList().transactions).should('exist');
